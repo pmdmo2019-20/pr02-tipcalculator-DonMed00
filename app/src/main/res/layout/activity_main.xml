@@ -5,3 +5,285 @@
      style="@style/Widget.AppCompat.Button.Borderless" for Buttons
 -->
 
+<!--  QUITAR HINTS  LABELFOR  -->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.main.MainActivity"
+    android:layout_margin="@dimen/main_margin">
+
+
+    <TextView
+        android:id="@+id/lblBill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/main_inter_margin"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
+        android:text="@string/bill"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.967"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/txtBill"
+        style="@style/Base.TextAppearance.AppCompat.Headline"
+        android:layout_width="379dp"
+        android:layout_height="57dp"
+        android:layout_margin="@dimen/main_inter_margin"
+        android:gravity="end"
+        android:hint="0.00"
+        android:inputType="numberDecimal"
+        app:layout_constraintEnd_toEndOf="@+id/lblBill"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblBill" />
+    <TextView
+        android:id="@+id/lblEuroBill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/main_inter_margin"
+        android:text="€"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="@+id/txtBill"
+        app:layout_constraintStart_toEndOf="@+id/txtBill"
+        app:layout_constraintTop_toTopOf="@+id/txtBill" />
+
+    <TextView
+        android:id="@+id/lblTip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/main_inter_margin"
+        android:text="@string/tip"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        app:layout_constraintEnd_toEndOf="@+id/lblBill"
+        app:layout_constraintTop_toBottomOf="@+id/txtBill" />
+
+    <EditText
+        android:id="@+id/txtTip"
+        android:focusable="false"
+        android:clickable="false"
+        style="@style/Base.TextAppearance.AppCompat.Headline"
+        android:layout_width="253dp"
+        android:layout_height="54dp"
+        android:layout_margin="@dimen/main_inter_margin"
+        android:gravity="end"
+        android:hint="0.00"
+        app:layout_constraintEnd_toEndOf="@+id/txtBill"
+        app:layout_constraintTop_toBottomOf="@+id/lblTip" />
+    <TextView
+        android:id="@+id/lblEuroTip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/main_inter_margin"
+        android:text="€"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="@+id/txtTip"
+        app:layout_constraintStart_toEndOf="@+id/txtTip"
+        app:layout_constraintTop_toTopOf="@+id/txtTip" />
+
+    <TextView
+        android:id="@+id/lblPercentage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/main_inter_margin"
+        android:text="@string/tip2"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        app:layout_constraintEnd_toStartOf="@+id/lblTip"
+        app:layout_constraintHorizontal_bias="0.196"
+        app:layout_constraintStart_toStartOf="@+id/txtBill"
+        app:layout_constraintTop_toBottomOf="@+id/txtBill" />
+
+    <EditText
+        android:id="@+id/txtPercentage"
+        android:inputType="numberDecimal"
+        style="@style/Base.TextAppearance.AppCompat.Headline"
+        android:layout_width="110dp"
+        android:layout_height="54dp"
+        android:hint="0.00"
+        android:layout_margin="@dimen/main_inter_margin"
+        android:gravity="end"
+        app:layout_constraintBottom_toBottomOf="@+id/txtTip"
+        app:layout_constraintEnd_toEndOf="@+id/lblPercentage"
+        app:layout_constraintStart_toStartOf="@+id/txtBill"
+        app:layout_constraintTop_toTopOf="@+id/txtTip" />
+    <TextView
+        android:id="@+id/lblTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/total"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        app:layout_constraintEnd_toEndOf="@+id/lblTip"
+        app:layout_constraintTop_toBottomOf="@+id/txtTip" />
+
+    <EditText
+        android:id="@+id/txtTotal"
+        android:focusable="false"
+        android:clickable="false"
+        style="@style/Base.TextAppearance.AppCompat.Headline"
+        android:layout_width="375dp"
+        android:layout_height="48dp"
+        android:layout_margin="@dimen/main_inter_margin"
+        android:gravity="end"
+        android:hint="0.00"
+        app:layout_constraintEnd_toEndOf="@+id/txtTip"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblTotal" />
+    <TextView
+        android:id="@+id/lblEuroTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/main_inter_margin"
+        android:text="€"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="@+id/txtTotal"
+        app:layout_constraintStart_toEndOf="@+id/txtTotal"
+        app:layout_constraintTop_toTopOf="@+id/txtTotal" />
+    <Button
+        android:focusable="false"
+        android:id="@+id/btnResetTip"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/main_inter_margin"
+
+        android:text="@string/reset"
+        android:textColor="@color/colorAccent"
+        app:layout_constraintEnd_toEndOf="@+id/lblTip"
+        app:layout_constraintTop_toBottomOf="@+id/txtTotal" />
+
+
+    <TextView
+        android:id="@+id/lblPerDiner"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/main_inter_margin"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="4dp"
+        android:text="@string/perDiner"
+        app:layout_constraintEnd_toEndOf="@+id/lblTip"
+        app:layout_constraintTop_toBottomOf="@+id/btnResetTip" />
+
+
+    <EditText
+        android:id="@+id/txtPerDiner"
+        android:focusable="false"
+        android:clickable="false"
+        style="@style/Base.TextAppearance.AppCompat.Headline"
+        android:layout_width="265dp"
+        android:layout_height="49dp"
+        android:layout_margin="@dimen/main_inter_margin"
+        android:layout_marginTop="4dp"
+        android:gravity="end"
+        android:hint="0.00"
+        app:layout_constraintEnd_toEndOf="@+id/lblPerDiner"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblPerDiner" />
+
+    <TextView
+        android:id="@+id/txtEuroPerDiner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/main_inter_margin"
+        android:layout_marginStart="28dp"
+        android:text="€"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="@+id/txtPerDiner"
+        app:layout_constraintStart_toEndOf="@+id/txtPerDiner"
+        app:layout_constraintTop_toTopOf="@+id/txtPerDiner"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/lblDiners"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/main_inter_margin"
+        android:text="@string/diners"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        app:layout_constraintBottom_toTopOf="@+id/txtPerDiner"
+        app:layout_constraintEnd_toEndOf="@+id/lblPercentage"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnResetTip"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/txtDiners"
+        android:inputType="number"
+        style="@style/Base.TextAppearance.AppCompat.Headline"
+        android:layout_width="110dp"
+        android:layout_height="49dp"
+        android:layout_margin="@dimen/main_inter_margin"
+        android:gravity="end"
+        android:hint="1"
+        app:layout_constraintBottom_toBottomOf="@+id/txtPerDiner"
+        app:layout_constraintEnd_toEndOf="@+id/lblDiners"
+        app:layout_constraintTop_toBottomOf="@+id/lblDiners"
+        android:singleLine="true"
+        android:imeOptions="actionNext" />
+
+    <TextView
+        android:id="@+id/lblPerDinerRounded"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/main_inter_margin"
+        android:text="@string/rounded"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        app:layout_constraintEnd_toEndOf="@+id/lblPerDiner"
+        app:layout_constraintTop_toBottomOf="@+id/txtPerDiner" />
+
+    <EditText
+        android:id="@+id/txtPerDinerRounded"
+        android:focusable="false"
+        android:clickable="false"
+        style="@style/Base.TextAppearance.AppCompat.Headline"
+        android:layout_width="373dp"
+        android:layout_height="49dp"
+        android:layout_margin="@dimen/main_inter_margin"
+        android:layout_marginTop="4dp"
+        android:gravity="end"
+        android:hint="0.00"
+
+        app:layout_constraintEnd_toEndOf="@+id/lblPerDinerRounded"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/txtBill"
+        app:layout_constraintTop_toBottomOf="@+id/lblPerDinerRounded" />
+    <TextView
+        android:id="@+id/txtEuroPerDinerRounded"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/main_inter_margin"
+        android:layout_marginStart="28dp"
+        android:text="€"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="@+id/txtPerDinerRounded"
+        app:layout_constraintStart_toEndOf="@+id/txtPerDinerRounded"
+        app:layout_constraintTop_toTopOf="@+id/txtPerDinerRounded"
+        app:layout_constraintVertical_bias="0.0" />
+    <Button
+        android:id="@+id/btnResetDiners"
+        android:focusable="false"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/main_inter_margin"
+        android:text="@string/reset"
+        android:textColor="@color/colorAccent"
+        app:layout_constraintEnd_toEndOf="@+id/lblPerDinerRounded"
+        app:layout_constraintTop_toBottomOf="@+id/txtPerDinerRounded" />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
