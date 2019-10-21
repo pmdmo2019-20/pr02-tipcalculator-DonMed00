@@ -11,30 +11,33 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity() {
-    lateinit var tipCalculator : TipCalculator
+    lateinit var tipCalculator: TipCalculator
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setupViews()
     }
-    //Tengo que lograr que se actualize todo
 
     @SuppressLint("ResourceType")
     private fun setupViews() {
-        txtBill.setText("10")
-        txtPercentage.setText("10.00")
-        txtDiners.setText("1")
+        putEditTextsDefault()
         txtBill.requestFocus()
         tipCalculator = TipCalculator(
             txtBill.text.toString().toFloat(),
             txtPercentage.text.toString().toFloat(),
             txtDiners.text.toString().toInt()
         )
-         txtLinks()
+        txtLinks()
+        editTextsOnChanged()
 
-         txtOnChanged()
 
+    }
 
+    private fun putEditTextsDefault() {
+        txtBill.setText("0")
+        txtPercentage.setText("10.00")
+        txtDiners.setText("1")
     }
 
     private fun txtLinks() {
@@ -44,21 +47,63 @@ class MainActivity : AppCompatActivity() {
         txtPerDinerRounded.setText(tipCalculator.calculatePerDinerRounded().toString())
     }
 
-    private fun txtOnChanged() {
+    private fun editTextsOnChanged() {
         txtBill.addTextChangedListener(object : TextWatcher {
-            override fun afterTextChanged(s: Editable?) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-            }
+            override fun afterTextChanged(s: Editable?) {}
 
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-            }
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if (txtBill.text.toString() == "") {
+                    txtBill.setText("0")
+                }
+                tipCalculator.bill = txtBill.text.toString().toFloat()
                 txtLinks()
             }
         })
+
+        txtPercentage.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {}
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if (txtPercentage.text.toString() == "") {
+                    txtPercentage.setText("10")
+                }
+                tipCalculator.percentage = txtPercentage.text.toString().toFloat()
+                txtLinks()
+            }
+        })
+        txtDiners.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {}
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if (txtDiners.text.toString() == "") {
+                    txtDiners.setText("1")
+                }
+                tipCalculator.diners = txtDiners.text.toString().toInt()
+                txtLinks()
+            }
+        })
+
+        btnResetTip.setOnClickListener { resetFields(true) }
+        btnResetDiners.setOnClickListener { resetFields(false) }
     }
 
+    private fun resetFields(flag: Boolean) {
+        if (flag) {
+            txtBill.setText("0")
+            txtTip.setText("0")
+            txtPercentage.setText("10")
+            txtTotal.setText("0")
+        } else {
+            txtDiners.setText("1")
+            txtPerDiner.setText("0")
+            txtPerDinerRounded.setText("0")
+        }
+    }
 
 }
