@@ -1,11 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- TODO Using ConstraintLayout
-     android:textAppearance="?android:attr/textAppearanceSmall" for TextViews
-     style="@style/Base.TextAppearance.AppCompat.Headline" for EditTexts
-     style="@style/Widget.AppCompat.Button.Borderless" for Buttons
--->
-
-<!--  LABELFOR  -->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -24,6 +17,7 @@
         android:layout_marginEnd="4dp"
         android:text="@string/bill"
         android:textAppearance="?android:attr/textAppearanceSmall"
+        android:labelFor="@+id/txtBill"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.967"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,8 +26,8 @@
     <EditText
         android:id="@+id/txtBill"
         style="@style/Base.TextAppearance.AppCompat.Headline"
-        android:layout_width="379dp"
-        android:layout_height="57dp"
+        android:layout_width="369dp"
+        android:layout_height="56dp"
         android:layout_margin="@dimen/main_inter_margin"
         android:gravity="end"
         android:inputType="numberDecimal"
@@ -60,17 +54,19 @@
         android:layout_margin="@dimen/main_inter_margin"
         android:text="@string/tip"
         android:textAppearance="?android:attr/textAppearanceSmall"
+        android:labelFor="@+id/txtTip"
+
         app:layout_constraintEnd_toEndOf="@+id/lblBill"
         app:layout_constraintTop_toBottomOf="@+id/txtBill" />
 
     <EditText
         android:id="@+id/txtTip"
-        android:focusable="false"
-        android:clickable="false"
         style="@style/Base.TextAppearance.AppCompat.Headline"
-        android:layout_width="253dp"
-        android:layout_height="54dp"
+        android:layout_width="233dp"
+        android:layout_height="58dp"
         android:layout_margin="@dimen/main_inter_margin"
+        android:clickable="false"
+        android:focusable="false"
         android:gravity="end"
         app:layout_constraintEnd_toEndOf="@+id/txtBill"
         app:layout_constraintTop_toBottomOf="@+id/lblTip" />
@@ -93,6 +89,7 @@
         android:layout_margin="@dimen/main_inter_margin"
         android:text="@string/tip2"
         android:textAppearance="?android:attr/textAppearanceSmall"
+        android:labelFor="@+id/txtPercentage"
         app:layout_constraintEnd_toStartOf="@+id/lblTip"
         app:layout_constraintHorizontal_bias="0.196"
         app:layout_constraintStart_toStartOf="@+id/txtBill"
@@ -111,12 +108,26 @@
         app:layout_constraintEnd_toEndOf="@+id/lblPercentage"
         app:layout_constraintStart_toStartOf="@+id/txtBill"
         app:layout_constraintTop_toTopOf="@+id/txtTip" />
+
+    <TextView
+        android:id="@+id/txtPercent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/main_inter_margin"
+        android:text="%"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="@+id/txtPercentage"
+        app:layout_constraintStart_toEndOf="@+id/txtPercentage"
+        app:layout_constraintTop_toTopOf="@+id/txtPercentage" />
+
     <TextView
         android:id="@+id/lblTotal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/total"
         android:textAppearance="?android:attr/textAppearanceSmall"
+        android:labelFor="@+id/txtTotal"
         app:layout_constraintEnd_toEndOf="@+id/lblTip"
         app:layout_constraintTop_toBottomOf="@+id/txtTip" />
 
@@ -167,19 +178,21 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="4dp"
         android:text="@string/perDiner"
+        android:labelFor="@+id/txtPerDiner"
+
         app:layout_constraintEnd_toEndOf="@+id/lblTip"
         app:layout_constraintTop_toBottomOf="@+id/btnResetTip" />
 
 
     <EditText
         android:id="@+id/txtPerDiner"
-        android:focusable="false"
-        android:clickable="false"
         style="@style/Base.TextAppearance.AppCompat.Headline"
-        android:layout_width="265dp"
-        android:layout_height="49dp"
+        android:layout_width="241dp"
+        android:layout_height="48dp"
         android:layout_margin="@dimen/main_inter_margin"
         android:layout_marginTop="4dp"
+        android:clickable="false"
+        android:focusable="false"
         android:gravity="end"
         app:layout_constraintEnd_toEndOf="@+id/lblPerDiner"
         app:layout_constraintHorizontal_bias="1.0"
@@ -196,6 +209,7 @@
         android:textColor="@color/black"
         android:textSize="30dp"
         app:layout_constraintBottom_toBottomOf="@+id/txtPerDiner"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/txtPerDiner"
         app:layout_constraintTop_toTopOf="@+id/txtPerDiner"
         app:layout_constraintVertical_bias="0.0" />
@@ -207,6 +221,7 @@
         android:layout_margin="@dimen/main_inter_margin"
         android:text="@string/diners"
         android:textAppearance="?android:attr/textAppearanceSmall"
+        android:labelFor="@+id/txtDiners"
         app:layout_constraintBottom_toTopOf="@+id/txtPerDiner"
         app:layout_constraintEnd_toEndOf="@+id/lblPercentage"
         app:layout_constraintHorizontal_bias="1.0"
@@ -236,6 +251,7 @@
         android:layout_margin="@dimen/main_inter_margin"
         android:text="@string/rounded"
         android:textAppearance="?android:attr/textAppearanceSmall"
+        android:labelFor="@+id/txtPerDinerRounded"
         app:layout_constraintEnd_toEndOf="@+id/lblPerDiner"
         app:layout_constraintTop_toBottomOf="@+id/txtPerDiner" />
 
@@ -277,8 +293,5 @@
         android:textColor="@color/colorAccent"
         app:layout_constraintEnd_toEndOf="@+id/lblPerDinerRounded"
         app:layout_constraintTop_toBottomOf="@+id/txtPerDinerRounded" />
-
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

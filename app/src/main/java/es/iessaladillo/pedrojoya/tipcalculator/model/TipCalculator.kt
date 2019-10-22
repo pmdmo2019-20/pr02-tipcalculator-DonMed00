@@ -2,10 +2,6 @@ package es.iessaladillo.pedrojoya.tipcalculator.model
 
 import kotlin.math.ceil
 
-
-// TipCalculator class. Its constructor receives bill, percentage and diners
-
-
 class TipCalculator {
      var bill: Float = 0.00f
      var percentage: Float = 0.00f

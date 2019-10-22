@@ -10,6 +10,10 @@ import es.iessaladillo.pedrojoya.tipcalculator.R
 import es.iessaladillo.pedrojoya.tipcalculator.model.TipCalculator
 import kotlinx.android.synthetic.main.activity_main.*
 
+import java.text.DecimalFormat
+import java.text.DecimalFormatSymbols
+
+
 class MainActivity : AppCompatActivity() {
     lateinit var tipCalculator: TipCalculator
 
@@ -49,10 +53,17 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun txtLinks() {
-        txtTip.setText(tipCalculator.calculateTip().toString())
-        txtTotal.setText((tipCalculator.calculateTotal()).toString())
-        txtPerDiner.setText(tipCalculator.calculatePerDiner().toString())
-        txtPerDinerRounded.setText(tipCalculator.calculatePerDinerRounded().toString())
+        val separadoresPersonalizados = DecimalFormatSymbols()
+        separadoresPersonalizados.setDecimalSeparator('.')
+        val formato = DecimalFormat("0.00", separadoresPersonalizados)
+
+        txtTip.setText(formato.format(tipCalculator.calculateTip().toString().toFloat())).toString()
+        txtTotal.setText(formato.format(tipCalculator.calculateTotal().toString().toFloat()))
+            .toString()
+        txtPerDiner.setText(formato.format(tipCalculator.calculatePerDiner().toString().toFloat()))
+            .toString()
+        txtPerDinerRounded.setText(formato.format(tipCalculator.calculatePerDinerRounded().toString().toFloat()))
+            .toString()
     }
 
     private fun editTextsOnChanged(editText: EditText) {
@@ -64,7 +75,6 @@ class MainActivity : AppCompatActivity() {
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 checkFields(editText)
                 changeField(editText)
-
                 txtLinks()
             }
         })
