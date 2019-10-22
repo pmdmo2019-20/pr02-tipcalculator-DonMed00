@@ -5,7 +5,7 @@
      style="@style/Widget.AppCompat.Button.Borderless" for Buttons
 -->
 
-<!--  QUITAR HINTS  LABELFOR  -->
+<!--  LABELFOR  -->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -36,8 +36,8 @@
         android:layout_height="57dp"
         android:layout_margin="@dimen/main_inter_margin"
         android:gravity="end"
-        android:hint="0.00"
         android:inputType="numberDecimal"
+        android:selectAllOnFocus="true"
         app:layout_constraintEnd_toEndOf="@+id/lblBill"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lblBill" />
@@ -72,7 +72,6 @@
         android:layout_height="54dp"
         android:layout_margin="@dimen/main_inter_margin"
         android:gravity="end"
-        android:hint="0.00"
         app:layout_constraintEnd_toEndOf="@+id/txtBill"
         app:layout_constraintTop_toBottomOf="@+id/lblTip" />
     <TextView
@@ -105,9 +104,9 @@
         style="@style/Base.TextAppearance.AppCompat.Headline"
         android:layout_width="110dp"
         android:layout_height="54dp"
-        android:hint="0.00"
         android:layout_margin="@dimen/main_inter_margin"
         android:gravity="end"
+        android:selectAllOnFocus="true"
         app:layout_constraintBottom_toBottomOf="@+id/txtTip"
         app:layout_constraintEnd_toEndOf="@+id/lblPercentage"
         app:layout_constraintStart_toStartOf="@+id/txtBill"
@@ -130,7 +129,6 @@
         android:layout_height="48dp"
         android:layout_margin="@dimen/main_inter_margin"
         android:gravity="end"
-        android:hint="0.00"
         app:layout_constraintEnd_toEndOf="@+id/txtTip"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -183,7 +181,6 @@
         android:layout_margin="@dimen/main_inter_margin"
         android:layout_marginTop="4dp"
         android:gravity="end"
-        android:hint="0.00"
         app:layout_constraintEnd_toEndOf="@+id/lblPerDiner"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -225,7 +222,7 @@
         android:layout_height="49dp"
         android:layout_margin="@dimen/main_inter_margin"
         android:gravity="end"
-        android:hint="1"
+        android:selectAllOnFocus="true"
         app:layout_constraintBottom_toBottomOf="@+id/txtPerDiner"
         app:layout_constraintEnd_toEndOf="@+id/lblDiners"
         app:layout_constraintTop_toBottomOf="@+id/lblDiners"
@@ -252,8 +249,6 @@
         android:layout_margin="@dimen/main_inter_margin"
         android:layout_marginTop="4dp"
         android:gravity="end"
-        android:hint="0.00"
-
         app:layout_constraintEnd_toEndOf="@+id/lblPerDinerRounded"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/txtBill"
