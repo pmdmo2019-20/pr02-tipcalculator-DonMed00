@@ -20,8 +20,6 @@ class MainActivityTest {
     @get:Rule
     val activityRule: ActivityTestRule<MainActivity> = ActivityTestRule(MainActivity::class.java)
 
-    // Initial state
-
     @Test
     fun should_txtTip_txtTotal_txtPerDiner_and_txtPerDinerRounded_not_be_focusable() {
         onView(withId(R.id.txtTip))
@@ -50,8 +48,6 @@ class MainActivityTest {
             .check(matches(withText("1")))
     }
 
-    // txtBill
-
     @Test
     fun should_txtBill_have_default_when_invalid_input() {
         onView(withId(R.id.txtBill))
@@ -75,8 +71,6 @@ class MainActivityTest {
         onView(withId(R.id.txtPerDinerRounded))
             .check(matches(withText("110.00")))
     }
-
-    // txtPercentage
 
     @Test
     fun should_txtPercentaje_have_default_when_invalid_input() {
@@ -103,8 +97,6 @@ class MainActivityTest {
         onView(withId(R.id.txtPerDinerRounded))
             .check(matches(withText("120.00")))
     }
-
-    // txtDiners
 
     @Test
     fun should_txtDiners_have_default_when_invalid_input() {
@@ -134,8 +126,6 @@ class MainActivityTest {
             .check(matches(withText("55.00")))
     }
 
-    // btnResetTip works properly
-
     @Test
     fun should_btnResetTip_click_set_txtBill_and_txtPercetage_to_default() {
         onView(withId(R.id.txtBill))
@@ -149,8 +139,6 @@ class MainActivityTest {
         onView(withId(R.id.txtBill))
             .check(matches(hasFocus()))
     }
-
-    // btnResetDiners works properly
 
     @Test
     fun should_btnResetDiners_click_set_txtDiners_to_default() {
